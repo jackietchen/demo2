@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.JkzkbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Jkzkb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="yg" property="yg" jdbcType="VARCHAR" />
+    <result column="zdjb" property="zdjb" jdbcType="INTEGER" />
+    <result column="jbsm1" property="jbsm1" jdbcType="VARCHAR" />
+    <result column="xzbs" property="xzbs" jdbcType="INTEGER" />
+    <result column="jbsm2" property="jbsm2" jdbcType="VARCHAR" />
+    <result column="gxybs" property="gxybs" jdbcType="INTEGER" />
+    <result column="jbsm3" property="jbsm3" jdbcType="VARCHAR" />
+    <result column="crbs" property="crbs" jdbcType="INTEGER" />
+    <result column="jbsm4" property="jbsm4" jdbcType="VARCHAR" />
+    <result column="jsljb" property="jsljb" jdbcType="INTEGER" />
+    <result column="jbsm5" property="jbsm5" jdbcType="VARCHAR" />
+    <result column="zfbs" property="zfbs" jdbcType="INTEGER" />
+    <result column="jbsm6" property="jbsm6" jdbcType="VARCHAR" />
+    <result column="yqzjb" property="yqzjb" jdbcType="VARCHAR" />
+    <result column="sctjsj" property="sctjsj" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, yg, zdjb, jbsm1, xzbs, jbsm2, gxybs, jbsm3, crbs, jbsm4, jsljb, jbsm5, zfbs, 
+    jbsm6, yqzjb, sctjsj
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from jkzkb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectByYg" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from jkzkb
+    where yg = #{yg,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from jkzkb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Jkzkb" >
+    insert into jkzkb (lsh, yg, zdjb, 
+      jbsm1, xzbs, jbsm2, 
+      gxybs, jbsm3, crbs, 
+      jbsm4, jsljb, jbsm5, 
+      zfbs, jbsm6, yqzjb, 
+      sctjsj)
+    values (#{lsh,jdbcType=BIGINT}, #{yg,jdbcType=VARCHAR}, #{zdjb,jdbcType=INTEGER}, 
+      #{jbsm1,jdbcType=VARCHAR}, #{xzbs,jdbcType=INTEGER}, #{jbsm2,jdbcType=VARCHAR}, 
+      #{gxybs,jdbcType=INTEGER}, #{jbsm3,jdbcType=VARCHAR}, #{crbs,jdbcType=INTEGER}, 
+      #{jbsm4,jdbcType=VARCHAR}, #{jsljb,jdbcType=INTEGER}, #{jbsm5,jdbcType=VARCHAR}, 
+      #{zfbs,jdbcType=INTEGER}, #{jbsm6,jdbcType=VARCHAR}, #{yqzjb,jdbcType=VARCHAR}, 
+      #{sctjsj,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Jkzkb" >
+    insert into jkzkb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="yg != null" >
+        yg,
+      </if>
+      <if test="zdjb != null" >
+        zdjb,
+      </if>
+      <if test="jbsm1 != null" >
+        jbsm1,
+      </if>
+      <if test="xzbs != null" >
+        xzbs,
+      </if>
+      <if test="jbsm2 != null" >
+        jbsm2,
+      </if>
+      <if test="gxybs != null" >
+        gxybs,
+      </if>
+      <if test="jbsm3 != null" >
+        jbsm3,
+      </if>
+      <if test="crbs != null" >
+        crbs,
+      </if>
+      <if test="jbsm4 != null" >
+        jbsm4,
+      </if>
+      <if test="jsljb != null" >
+        jsljb,
+      </if>
+      <if test="jbsm5 != null" >
+        jbsm5,
+      </if>
+      <if test="zfbs != null" >
+        zfbs,
+      </if>
+      <if test="jbsm6 != null" >
+        jbsm6,
+      </if>
+      <if test="yqzjb != null" >
+        yqzjb,
+      </if>
+      <if test="sctjsj != null" >
+        sctjsj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="yg != null" >
+        #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="zdjb != null" >
+        #{zdjb,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm1 != null" >
+        #{jbsm1,jdbcType=VARCHAR},
+      </if>
+      <if test="xzbs != null" >
+        #{xzbs,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm2 != null" >
+        #{jbsm2,jdbcType=VARCHAR},
+      </if>
+      <if test="gxybs != null" >
+        #{gxybs,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm3 != null" >
+        #{jbsm3,jdbcType=VARCHAR},
+      </if>
+      <if test="crbs != null" >
+        #{crbs,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm4 != null" >
+        #{jbsm4,jdbcType=VARCHAR},
+      </if>
+      <if test="jsljb != null" >
+        #{jsljb,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm5 != null" >
+        #{jbsm5,jdbcType=VARCHAR},
+      </if>
+      <if test="zfbs != null" >
+        #{zfbs,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm6 != null" >
+        #{jbsm6,jdbcType=VARCHAR},
+      </if>
+      <if test="yqzjb != null" >
+        #{yqzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="sctjsj != null" >
+        #{sctjsj,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Jkzkb" >
+    update jkzkb
+    <set >
+      <if test="yg != null" >
+        yg = #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="zdjb != null" >
+        zdjb = #{zdjb,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm1 != null" >
+        jbsm1 = #{jbsm1,jdbcType=VARCHAR},
+      </if>
+      <if test="xzbs != null" >
+        xzbs = #{xzbs,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm2 != null" >
+        jbsm2 = #{jbsm2,jdbcType=VARCHAR},
+      </if>
+      <if test="gxybs != null" >
+        gxybs = #{gxybs,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm3 != null" >
+        jbsm3 = #{jbsm3,jdbcType=VARCHAR},
+      </if>
+      <if test="crbs != null" >
+        crbs = #{crbs,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm4 != null" >
+        jbsm4 = #{jbsm4,jdbcType=VARCHAR},
+      </if>
+      <if test="jsljb != null" >
+        jsljb = #{jsljb,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm5 != null" >
+        jbsm5 = #{jbsm5,jdbcType=VARCHAR},
+      </if>
+      <if test="zfbs != null" >
+        zfbs = #{zfbs,jdbcType=INTEGER},
+      </if>
+      <if test="jbsm6 != null" >
+        jbsm6 = #{jbsm6,jdbcType=VARCHAR},
+      </if>
+      <if test="yqzjb != null" >
+        yqzjb = #{yqzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="sctjsj != null" >
+        sctjsj = #{sctjsj,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Jkzkb" >
+    update jkzkb
+    set yg = #{yg,jdbcType=VARCHAR},
+      zdjb = #{zdjb,jdbcType=INTEGER},
+      jbsm1 = #{jbsm1,jdbcType=VARCHAR},
+      xzbs = #{xzbs,jdbcType=INTEGER},
+      jbsm2 = #{jbsm2,jdbcType=VARCHAR},
+      gxybs = #{gxybs,jdbcType=INTEGER},
+      jbsm3 = #{jbsm3,jdbcType=VARCHAR},
+      crbs = #{crbs,jdbcType=INTEGER},
+      jbsm4 = #{jbsm4,jdbcType=VARCHAR},
+      jsljb = #{jsljb,jdbcType=INTEGER},
+      jbsm5 = #{jbsm5,jdbcType=VARCHAR},
+      zfbs = #{zfbs,jdbcType=INTEGER},
+      jbsm6 = #{jbsm6,jdbcType=VARCHAR},
+      yqzjb = #{yqzjb,jdbcType=VARCHAR},
+      sctjsj = #{sctjsj,jdbcType=TIMESTAMP}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.CsgdhyjlbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Csgdhyjlb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="yg" property="yg" jdbcType="VARCHAR" />
+    <result column="hy" property="hy" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, yg, hy
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from csgdhyjlb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectByYg" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from csgdhyjlb
+    where yg = #{yg,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from csgdhyjlb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByYg" parameterType="java.lang.String" >
+    delete from csgdhyjlb
+    where yg = #{yg,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Csgdhyjlb" >
+    insert into csgdhyjlb (lsh, yg, hy)
+    values (#{lsh,jdbcType=BIGINT}, #{yg,jdbcType=VARCHAR}, #{hy,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Csgdhyjlb" >
+    insert into csgdhyjlb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="yg != null" >
+        yg,
+      </if>
+      <if test="hy != null" >
+        hy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="yg != null" >
+        #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="hy != null" >
+        #{hy,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Csgdhyjlb" >
+    update csgdhyjlb
+    <set >
+      <if test="yg != null" >
+        yg = #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="hy != null" >
+        hy = #{hy,jdbcType=INTEGER},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Csgdhyjlb" >
+    update csgdhyjlb
+    set yg = #{yg,jdbcType=VARCHAR},
+      hy = #{hy,jdbcType=INTEGER}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

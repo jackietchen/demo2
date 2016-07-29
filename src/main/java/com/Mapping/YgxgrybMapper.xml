@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.YgxgrybMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Ygxgryb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="yg" property="yg" jdbcType="VARCHAR" />
+    <result column="ry" property="ry" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, yg, ry
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ygxgryb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectByYg" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ygxgryb
+    where yg = #{yg,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByRy" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ygxgryb
+    where ry = #{ry,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ygxgryb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Ygxgryb" >
+    insert into ygxgryb (lsh, yg, ry)
+    values (#{lsh,jdbcType=BIGINT}, #{yg,jdbcType=VARCHAR}, #{ry,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Ygxgryb" >
+    insert into ygxgryb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="yg != null" >
+        yg,
+      </if>
+      <if test="ry != null" >
+        ry,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="yg != null" >
+        #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="ry != null" >
+        #{ry,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Ygxgryb" >
+    update ygxgryb
+    <set >
+      <if test="yg != null" >
+        yg = #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="ry != null" >
+        ry = #{ry,jdbcType=BIGINT},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Ygxgryb" >
+    update ygxgryb
+    set yg = #{yg,jdbcType=VARCHAR},
+      ry = #{ry,jdbcType=BIGINT}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

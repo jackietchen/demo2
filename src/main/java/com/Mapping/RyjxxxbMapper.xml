@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.RyjxxxbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Ryjxxxb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="nf" property="nf" jdbcType="INTEGER" />
+    <result column="dxlb" property="dxlb" jdbcType="INTEGER" />
+    <result column="yg" property="yg" jdbcType="VARCHAR" />
+    <result column="gc" property="gc" jdbcType="BIGINT" />
+    <result column="hjdx" property="hjdx" jdbcType="VARCHAR" />
+    <result column="rymc" property="rymc" jdbcType="VARCHAR" />
+    <result column="bjzzqc" property="bjzzqc" jdbcType="VARCHAR" />
+    <result column="bfsj" property="bfsj" jdbcType="TIMESTAMP" />
+    <result column="rylb" property="rylb" jdbcType="INTEGER" />
+    <result column="ryjb" property="ryjb" jdbcType="BIGINT" />
+    <result column="fw" property="fw" jdbcType="INTEGER" />
+    <result column="jz" property="jz" jdbcType="INTEGER" />
+    <result column="jb" property="jb" jdbcType="INTEGER" />
+    <result column="jp" property="jp" jdbcType="INTEGER" />
+    <result column="qt" property="qt" jdbcType="INTEGER" />
+    <result column="qtjz" property="qtjz" jdbcType="VARCHAR" />
+    <result column="ssbm" property="ssbm" jdbcType="VARCHAR" />
+    <result column="yjbgd" property="yjbgd" jdbcType="INTEGER" />
+    <result column="smj" property="smj" jdbcType="VARCHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="djsj" property="djsj" jdbcType="TIMESTAMP" />
+    <result column="jg" property="jg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, nf, dxlb, yg, gc, hjdx, rymc, bjzzqc, bfsj, rylb, ryjb, fw, jz, jb, jp, qt, 
+    qtjz, ssbm, yjbgd, smj, bz, djsj, jg
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ryjxxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectByYg" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ryjxxxb
+    where yg = #{yg,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByGc" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ryjxxxb
+    where gc = #{gc,jdbcType=BIGINT}
+  </select>
+  <select id="selectByRyjb" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ryjxxxb
+    where ryjb = #{ryjb,jdbcType=BIGINT}
+  </select>
+  <select id="selectBySsbm" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ryjxxxb
+    where ssbm = #{ssbm,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByJg" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ryjxxxb
+    where jg = #{jg,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByLike" resultMap="BaseResultMap" parameterType="com.Pojo.Ryjxxxb" >
+    select 
+    <include refid="Base_Column_List" />
+    from ryjxxxb
+    where jg = #{jg,jdbcType=VARCHAR}
+    and rymc like CONCAT('%',#{rymc,jdbcType=VARCHAR},'%')
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ryjxxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Ryjxxxb" >
+    insert into ryjxxxb (lsh, nf, dxlb, 
+      yg, gc, hjdx, rymc, 
+      bjzzqc, bfsj, rylb, 
+      ryjb, fw, jz, jb, 
+      jp, qt, qtjz, ssbm, 
+      yjbgd, smj, bz, djsj, 
+      jg)
+    values (#{lsh,jdbcType=BIGINT}, #{nf,jdbcType=INTEGER}, #{dxlb,jdbcType=INTEGER}, 
+      #{yg,jdbcType=VARCHAR}, #{gc,jdbcType=BIGINT}, #{hjdx,jdbcType=VARCHAR}, #{rymc,jdbcType=VARCHAR}, 
+      #{bjzzqc,jdbcType=VARCHAR}, #{bfsj,jdbcType=TIMESTAMP}, #{rylb,jdbcType=INTEGER}, 
+      #{ryjb,jdbcType=BIGINT}, #{fw,jdbcType=INTEGER}, #{jz,jdbcType=INTEGER}, #{jb,jdbcType=INTEGER}, 
+      #{jp,jdbcType=INTEGER}, #{qt,jdbcType=INTEGER}, #{qtjz,jdbcType=VARCHAR}, #{ssbm,jdbcType=VARCHAR}, 
+      #{yjbgd,jdbcType=INTEGER}, #{smj,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{djsj,jdbcType=TIMESTAMP}, 
+      #{jg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Ryjxxxb" >
+    insert into ryjxxxb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="nf != null" >
+        nf,
+      </if>
+      <if test="dxlb != null" >
+        dxlb,
+      </if>
+      <if test="yg != null" >
+        yg,
+      </if>
+      <if test="gc != null" >
+        gc,
+      </if>
+      <if test="hjdx != null" >
+        hjdx,
+      </if>
+      <if test="rymc != null" >
+        rymc,
+      </if>
+      <if test="bjzzqc != null" >
+        bjzzqc,
+      </if>
+      <if test="bfsj != null" >
+        bfsj,
+      </if>
+      <if test="rylb != null" >
+        rylb,
+      </if>
+      <if test="ryjb != null" >
+        ryjb,
+      </if>
+      <if test="fw != null" >
+        fw,
+      </if>
+      <if test="jz != null" >
+        jz,
+      </if>
+      <if test="jb != null" >
+        jb,
+      </if>
+      <if test="jp != null" >
+        jp,
+      </if>
+      <if test="qt != null" >
+        qt,
+      </if>
+      <if test="qtjz != null" >
+        qtjz,
+      </if>
+      <if test="ssbm != null" >
+        ssbm,
+      </if>
+      <if test="yjbgd != null" >
+        yjbgd,
+      </if>
+      <if test="smj != null" >
+        smj,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="djsj != null" >
+        djsj,
+      </if>
+      <if test="jg != null" >
+        jg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="nf != null" >
+        #{nf,jdbcType=INTEGER},
+      </if>
+      <if test="dxlb != null" >
+        #{dxlb,jdbcType=INTEGER},
+      </if>
+      <if test="yg != null" >
+        #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="gc != null" >
+        #{gc,jdbcType=BIGINT},
+      </if>
+      <if test="hjdx != null" >
+        #{hjdx,jdbcType=VARCHAR},
+      </if>
+      <if test="rymc != null" >
+        #{rymc,jdbcType=VARCHAR},
+      </if>
+      <if test="bjzzqc != null" >
+        #{bjzzqc,jdbcType=VARCHAR},
+      </if>
+      <if test="bfsj != null" >
+        #{bfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rylb != null" >
+        #{rylb,jdbcType=INTEGER},
+      </if>
+      <if test="ryjb != null" >
+        #{ryjb,jdbcType=BIGINT},
+      </if>
+      <if test="fw != null" >
+        #{fw,jdbcType=INTEGER},
+      </if>
+      <if test="jz != null" >
+        #{jz,jdbcType=INTEGER},
+      </if>
+      <if test="jb != null" >
+        #{jb,jdbcType=INTEGER},
+      </if>
+      <if test="jp != null" >
+        #{jp,jdbcType=INTEGER},
+      </if>
+      <if test="qt != null" >
+        #{qt,jdbcType=INTEGER},
+      </if>
+      <if test="qtjz != null" >
+        #{qtjz,jdbcType=VARCHAR},
+      </if>
+      <if test="ssbm != null" >
+        #{ssbm,jdbcType=VARCHAR},
+      </if>
+      <if test="yjbgd != null" >
+        #{yjbgd,jdbcType=INTEGER},
+      </if>
+      <if test="smj != null" >
+        #{smj,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="djsj != null" >
+        #{djsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jg != null" >
+        #{jg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Ryjxxxb" >
+    update ryjxxxb
+    <set >
+      <if test="nf != null" >
+        nf = #{nf,jdbcType=INTEGER},
+      </if>
+      <if test="dxlb != null" >
+        dxlb = #{dxlb,jdbcType=INTEGER},
+      </if>
+      <if test="yg != null" >
+        yg = #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="gc != null" >
+        gc = #{gc,jdbcType=BIGINT},
+      </if>
+      <if test="hjdx != null" >
+        hjdx = #{hjdx,jdbcType=VARCHAR},
+      </if>
+      <if test="rymc != null" >
+        rymc = #{rymc,jdbcType=VARCHAR},
+      </if>
+      <if test="bjzzqc != null" >
+        bjzzqc = #{bjzzqc,jdbcType=VARCHAR},
+      </if>
+      <if test="bfsj != null" >
+        bfsj = #{bfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rylb != null" >
+        rylb = #{rylb,jdbcType=INTEGER},
+      </if>
+      <if test="ryjb != null" >
+        ryjb = #{ryjb,jdbcType=BIGINT},
+      </if>
+      <if test="fw != null" >
+        fw = #{fw,jdbcType=INTEGER},
+      </if>
+      <if test="jz != null" >
+        jz = #{jz,jdbcType=INTEGER},
+      </if>
+      <if test="jb != null" >
+        jb = #{jb,jdbcType=INTEGER},
+      </if>
+      <if test="jp != null" >
+        jp = #{jp,jdbcType=INTEGER},
+      </if>
+      <if test="qt != null" >
+        qt = #{qt,jdbcType=INTEGER},
+      </if>
+      <if test="qtjz != null" >
+        qtjz = #{qtjz,jdbcType=VARCHAR},
+      </if>
+      <if test="ssbm != null" >
+        ssbm = #{ssbm,jdbcType=VARCHAR},
+      </if>
+      <if test="yjbgd != null" >
+        yjbgd = #{yjbgd,jdbcType=INTEGER},
+      </if>
+      <if test="smj != null" >
+        smj = #{smj,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="djsj != null" >
+        djsj = #{djsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jg != null" >
+        jg = #{jg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Ryjxxxb" >
+    update ryjxxxb
+    set nf = #{nf,jdbcType=INTEGER},
+      dxlb = #{dxlb,jdbcType=INTEGER},
+      yg = #{yg,jdbcType=VARCHAR},
+      gc = #{gc,jdbcType=BIGINT},
+      hjdx = #{hjdx,jdbcType=VARCHAR},
+      rymc = #{rymc,jdbcType=VARCHAR},
+      bjzzqc = #{bjzzqc,jdbcType=VARCHAR},
+      bfsj = #{bfsj,jdbcType=TIMESTAMP},
+      rylb = #{rylb,jdbcType=INTEGER},
+      ryjb = #{ryjb,jdbcType=BIGINT},
+      fw = #{fw,jdbcType=INTEGER},
+      jz = #{jz,jdbcType=INTEGER},
+      jb = #{jb,jdbcType=INTEGER},
+      jp = #{jp,jdbcType=INTEGER},
+      qt = #{qt,jdbcType=INTEGER},
+      qtjz = #{qtjz,jdbcType=VARCHAR},
+      ssbm = #{ssbm,jdbcType=VARCHAR},
+      yjbgd = #{yjbgd,jdbcType=INTEGER},
+      smj = #{smj,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR},
+      djsj = #{djsj,jdbcType=TIMESTAMP},
+      jg = #{jg,jdbcType=VARCHAR}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

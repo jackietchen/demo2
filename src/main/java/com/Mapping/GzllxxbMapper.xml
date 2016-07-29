@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.GzllxxbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Gzllxxb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="yg" property="yg" jdbcType="VARCHAR" />
+    <result column="gzdw" property="gzdw" jdbcType="VARCHAR" />
+    <result column="qssj" property="qssj" jdbcType="TIMESTAMP" />
+    <result column="jssj" property="jssj" jdbcType="TIMESTAMP" />
+    <result column="zc" property="zc" jdbcType="INTEGER" />
+    <result column="zw" property="zw" jdbcType="VARCHAR" />
+    <result column="csgzzy" property="csgzzy" jdbcType="VARCHAR" />
+    <result column="zmr" property="zmr" jdbcType="VARCHAR" />
+    <result column="zmrdh" property="zmrdh" jdbcType="VARCHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, yg, gzdw, qssj, jssj, zc, zw, csgzzy, zmr, zmrdh, bz
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from gzllxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectByYg" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from gzllxxb
+    where yg = #{yg,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from gzllxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Gzllxxb" >
+    insert into gzllxxb (lsh, yg, gzdw, 
+      qssj, jssj, zc, 
+      zw, csgzzy, zmr, zmrdh, 
+      bz)
+    values (#{lsh,jdbcType=BIGINT}, #{yg,jdbcType=VARCHAR}, #{gzdw,jdbcType=VARCHAR}, 
+      #{qssj,jdbcType=TIMESTAMP}, #{jssj,jdbcType=TIMESTAMP}, #{zc,jdbcType=INTEGER}, 
+      #{zw,jdbcType=VARCHAR}, #{csgzzy,jdbcType=VARCHAR}, #{zmr,jdbcType=VARCHAR}, #{zmrdh,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Gzllxxb" >
+    insert into gzllxxb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="yg != null" >
+        yg,
+      </if>
+      <if test="gzdw != null" >
+        gzdw,
+      </if>
+      <if test="qssj != null" >
+        qssj,
+      </if>
+      <if test="jssj != null" >
+        jssj,
+      </if>
+      <if test="zc != null" >
+        zc,
+      </if>
+      <if test="zw != null" >
+        zw,
+      </if>
+      <if test="csgzzy != null" >
+        csgzzy,
+      </if>
+      <if test="zmr != null" >
+        zmr,
+      </if>
+      <if test="zmrdh != null" >
+        zmrdh,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="yg != null" >
+        #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="gzdw != null" >
+        #{gzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="qssj != null" >
+        #{qssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jssj != null" >
+        #{jssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zc != null" >
+        #{zc,jdbcType=INTEGER},
+      </if>
+      <if test="zw != null" >
+        #{zw,jdbcType=VARCHAR},
+      </if>
+      <if test="csgzzy != null" >
+        #{csgzzy,jdbcType=VARCHAR},
+      </if>
+      <if test="zmr != null" >
+        #{zmr,jdbcType=VARCHAR},
+      </if>
+      <if test="zmrdh != null" >
+        #{zmrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Gzllxxb" >
+    update gzllxxb
+    <set >
+      <if test="yg != null" >
+        yg = #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="gzdw != null" >
+        gzdw = #{gzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="qssj != null" >
+        qssj = #{qssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jssj != null" >
+        jssj = #{jssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zc != null" >
+        zc = #{zc,jdbcType=INTEGER},
+      </if>
+      <if test="zw != null" >
+        zw = #{zw,jdbcType=VARCHAR},
+      </if>
+      <if test="csgzzy != null" >
+        csgzzy = #{csgzzy,jdbcType=VARCHAR},
+      </if>
+      <if test="zmr != null" >
+        zmr = #{zmr,jdbcType=VARCHAR},
+      </if>
+      <if test="zmrdh != null" >
+        zmrdh = #{zmrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Gzllxxb" >
+    update gzllxxb
+    set yg = #{yg,jdbcType=VARCHAR},
+      gzdw = #{gzdw,jdbcType=VARCHAR},
+      qssj = #{qssj,jdbcType=TIMESTAMP},
+      jssj = #{jssj,jdbcType=TIMESTAMP},
+      zc = #{zc,jdbcType=INTEGER},
+      zw = #{zw,jdbcType=VARCHAR},
+      csgzzy = #{csgzzy,jdbcType=VARCHAR},
+      zmr = #{zmr,jdbcType=VARCHAR},
+      zmrdh = #{zmrdh,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

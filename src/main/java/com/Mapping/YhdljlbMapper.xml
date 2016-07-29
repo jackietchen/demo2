@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.YhdljlbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Yhdljlb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="xm" property="xm" jdbcType="VARCHAR" />
+    <result column="sfzh" property="sfzh" jdbcType="VARCHAR" />
+    <result column="szdw" property="szdw" jdbcType="VARCHAR" />
+    <result column="sjhm" property="sjhm" jdbcType="VARCHAR" />
+    <result column="dlsj" property="dlsj" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, xm, sfzh, szdw, sjhm, dlsj
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from yhdljlb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectBySzdw" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from yhdljlb
+    where szdw = #{szdw,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from yhdljlb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Yhdljlb" >
+    insert into yhdljlb (lsh, xm, sfzh, 
+      szdw, sjhm, dlsj)
+    values (#{lsh,jdbcType=BIGINT}, #{xm,jdbcType=VARCHAR}, #{sfzh,jdbcType=VARCHAR}, 
+      #{szdw,jdbcType=VARCHAR}, #{sjhm,jdbcType=VARCHAR}, #{dlsj,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Yhdljlb" >
+    insert into yhdljlb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="xm != null" >
+        xm,
+      </if>
+      <if test="sfzh != null" >
+        sfzh,
+      </if>
+      <if test="szdw != null" >
+        szdw,
+      </if>
+      <if test="sjhm != null" >
+        sjhm,
+      </if>
+      <if test="dlsj != null" >
+        dlsj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="xm != null" >
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null" >
+        #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="szdw != null" >
+        #{szdw,jdbcType=VARCHAR},
+      </if>
+      <if test="sjhm != null" >
+        #{sjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="dlsj != null" >
+        #{dlsj,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Yhdljlb" >
+    update yhdljlb
+    <set >
+      <if test="xm != null" >
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null" >
+        sfzh = #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="szdw != null" >
+        szdw = #{szdw,jdbcType=VARCHAR},
+      </if>
+      <if test="sjhm != null" >
+        sjhm = #{sjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="dlsj != null" >
+        dlsj = #{dlsj,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Yhdljlb" >
+    update yhdljlb
+    set xm = #{xm,jdbcType=VARCHAR},
+      sfzh = #{sfzh,jdbcType=VARCHAR},
+      szdw = #{szdw,jdbcType=VARCHAR},
+      sjhm = #{sjhm,jdbcType=VARCHAR},
+      dlsj = #{dlsj,jdbcType=TIMESTAMP}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

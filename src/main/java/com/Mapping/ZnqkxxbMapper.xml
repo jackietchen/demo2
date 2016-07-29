@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.ZnqkxxbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Znqkxxb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="yg" property="yg" jdbcType="VARCHAR" />
+    <result column="xm" property="xm" jdbcType="VARCHAR" />
+    <result column="sfzhm" property="sfzhm" jdbcType="VARCHAR" />
+    <result column="xb" property="xb" jdbcType="INTEGER" />
+    <result column="csny" property="csny" jdbcType="TIMESTAMP" />
+    <result column="jyjzqk" property="jyjzqk" jdbcType="INTEGER" />
+    <result column="hjszd" property="hjszd" jdbcType="VARCHAR" />
+    <result column="zdxx" property="zdxx" jdbcType="VARCHAR" />
+    <result column="gzdw" property="gzdw" jdbcType="VARCHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, yg, xm, sfzhm, xb, csny, jyjzqk, hjszd, zdxx, gzdw, bz
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from znqkxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectByYg" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from znqkxxb
+    where yg = #{yg,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from znqkxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Znqkxxb" >
+    insert into znqkxxb (lsh, yg, xm, sfzhm, 
+      xb, csny, jyjzqk, 
+      hjszd, zdxx, gzdw, 
+      bz)
+    values (#{lsh,jdbcType=BIGINT}, #{yg,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{sfzhm,jdbcType=VARCHAR}, 
+      #{xb,jdbcType=INTEGER}, #{csny,jdbcType=TIMESTAMP}, #{jyjzqk,jdbcType=INTEGER}, 
+      #{hjszd,jdbcType=VARCHAR}, #{zdxx,jdbcType=VARCHAR}, #{gzdw,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Znqkxxb" >
+    insert into znqkxxb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="yg != null" >
+        yg,
+      </if>
+      <if test="xm != null" >
+        xm,
+      </if>
+      <if test="sfzhm != null" >
+        sfzhm,
+      </if>
+      <if test="xb != null" >
+        xb,
+      </if>
+      <if test="csny != null" >
+        csny,
+      </if>
+      <if test="jyjzqk != null" >
+        jyjzqk,
+      </if>
+      <if test="hjszd != null" >
+        hjszd,
+      </if>
+      <if test="zdxx != null" >
+        zdxx,
+      </if>
+      <if test="gzdw != null" >
+        gzdw,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="yg != null" >
+        #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null" >
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzhm != null" >
+        #{sfzhm,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null" >
+        #{xb,jdbcType=INTEGER},
+      </if>
+      <if test="csny != null" >
+        #{csny,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jyjzqk != null" >
+        #{jyjzqk,jdbcType=INTEGER},
+      </if>
+      <if test="hjszd != null" >
+        #{hjszd,jdbcType=VARCHAR},
+      </if>
+      <if test="zdxx != null" >
+        #{zdxx,jdbcType=VARCHAR},
+      </if>
+      <if test="gzdw != null" >
+        #{gzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Znqkxxb" >
+    update znqkxxb
+    <set >
+      <if test="yg != null" >
+        yg = #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null" >
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzhm != null" >
+        sfzhm = #{sfzhm,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null" >
+        xb = #{xb,jdbcType=INTEGER},
+      </if>
+      <if test="csny != null" >
+        csny = #{csny,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jyjzqk != null" >
+        jyjzqk = #{jyjzqk,jdbcType=INTEGER},
+      </if>
+      <if test="hjszd != null" >
+        hjszd = #{hjszd,jdbcType=VARCHAR},
+      </if>
+      <if test="zdxx != null" >
+        zdxx = #{zdxx,jdbcType=VARCHAR},
+      </if>
+      <if test="gzdw != null" >
+        gzdw = #{gzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Znqkxxb" >
+    update znqkxxb
+    set yg = #{yg,jdbcType=VARCHAR},
+      xm = #{xm,jdbcType=VARCHAR},
+      sfzhm = #{sfzhm,jdbcType=VARCHAR},
+      xb = #{xb,jdbcType=INTEGER},
+      csny = #{csny,jdbcType=TIMESTAMP},
+      jyjzqk = #{jyjzqk,jdbcType=INTEGER},
+      hjszd = #{hjszd,jdbcType=VARCHAR},
+      zdxx = #{zdxx,jdbcType=VARCHAR},
+      gzdw = #{gzdw,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

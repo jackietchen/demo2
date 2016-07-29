@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.HtyjxxbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Htyjxxb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="yg" property="yg" jdbcType="VARCHAR" />
+    <result column="ht" property="ht" jdbcType="BIGINT" />
+    <result column="htbh" property="htbh" jdbcType="VARCHAR" />
+    <result column="xmmc" property="xmmc" jdbcType="VARCHAR" />
+    <result column="xmzy" property="xmzy" jdbcType="INTEGER" />
+    <result column="the" property="the" jdbcType="DOUBLE" />
+    <result column="htkgrq" property="htkgrq" jdbcType="TIMESTAMP" />
+    <result column="htjgrq" property="htjgrq" jdbcType="TIMESTAMP" />
+    <result column="jfdw1" property="jfdw1" jdbcType="VARCHAR" />
+    <result column="jfdw2" property="jfdw2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, yg, ht, htbh, xmmc, xmzy, the, htkgrq, htjgrq, jfdw1, jfdw2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from htyjxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectByYg" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from htyjxxb
+    where yg = #{yg,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from htyjxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Htyjxxb" >
+    insert into htyjxxb (lsh, yg, ht, htbh, 
+      xmmc, xmzy, the, htkgrq, 
+      htjgrq, jfdw1, jfdw2
+      )
+    values (#{lsh,jdbcType=BIGINT}, #{yg,jdbcType=VARCHAR}, #{ht,jdbcType=BIGINT}, #{htbh,jdbcType=VARCHAR}, 
+      #{xmmc,jdbcType=VARCHAR}, #{xmzy,jdbcType=INTEGER}, #{the,jdbcType=DOUBLE}, #{htkgrq,jdbcType=TIMESTAMP}, 
+      #{htjgrq,jdbcType=TIMESTAMP}, #{jfdw1,jdbcType=VARCHAR}, #{jfdw2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Htyjxxb" >
+    insert into htyjxxb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="yg != null" >
+        yg,
+      </if>
+      <if test="ht != null" >
+        ht,
+      </if>
+      <if test="htbh != null" >
+        htbh,
+      </if>
+      <if test="xmmc != null" >
+        xmmc,
+      </if>
+      <if test="xmzy != null" >
+        xmzy,
+      </if>
+      <if test="the != null" >
+        the,
+      </if>
+      <if test="htkgrq != null" >
+        htkgrq,
+      </if>
+      <if test="htjgrq != null" >
+        htjgrq,
+      </if>
+      <if test="jfdw1 != null" >
+        jfdw1,
+      </if>
+      <if test="jfdw2 != null" >
+        jfdw2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="yg != null" >
+        #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="ht != null" >
+        #{ht,jdbcType=BIGINT},
+      </if>
+      <if test="htbh != null" >
+        #{htbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xmmc != null" >
+        #{xmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xmzy != null" >
+        #{xmzy,jdbcType=INTEGER},
+      </if>
+      <if test="the != null" >
+        #{the,jdbcType=DOUBLE},
+      </if>
+      <if test="htkgrq != null" >
+        #{htkgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htjgrq != null" >
+        #{htjgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jfdw1 != null" >
+        #{jfdw1,jdbcType=VARCHAR},
+      </if>
+      <if test="jfdw2 != null" >
+        #{jfdw2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Htyjxxb" >
+    update htyjxxb
+    <set >
+      <if test="yg != null" >
+        yg = #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="ht != null" >
+        ht = #{ht,jdbcType=BIGINT},
+      </if>
+      <if test="htbh != null" >
+        htbh = #{htbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xmmc != null" >
+        xmmc = #{xmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xmzy != null" >
+        xmzy = #{xmzy,jdbcType=INTEGER},
+      </if>
+      <if test="the != null" >
+        the = #{the,jdbcType=DOUBLE},
+      </if>
+      <if test="htkgrq != null" >
+        htkgrq = #{htkgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htjgrq != null" >
+        htjgrq = #{htjgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jfdw1 != null" >
+        jfdw1 = #{jfdw1,jdbcType=VARCHAR},
+      </if>
+      <if test="jfdw2 != null" >
+        jfdw2 = #{jfdw2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Htyjxxb" >
+    update htyjxxb
+    set yg = #{yg,jdbcType=VARCHAR},
+      ht = #{ht,jdbcType=BIGINT},
+      htbh = #{htbh,jdbcType=VARCHAR},
+      xmmc = #{xmmc,jdbcType=VARCHAR},
+      xmzy = #{xmzy,jdbcType=INTEGER},
+      the = #{the,jdbcType=DOUBLE},
+      htkgrq = #{htkgrq,jdbcType=TIMESTAMP},
+      htjgrq = #{htjgrq,jdbcType=TIMESTAMP},
+      jfdw1 = #{jfdw1,jdbcType=VARCHAR},
+      jfdw2 = #{jfdw2,jdbcType=VARCHAR}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

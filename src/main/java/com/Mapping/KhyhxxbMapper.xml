@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.KhyhxxbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Khyhxxb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="yhbh" property="yhbh" jdbcType="VARCHAR" />
+    <result column="khyhqc" property="khyhqc" jdbcType="VARCHAR" />
+    <result column="px" property="px" jdbcType="INTEGER" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, yhbh, khyhqc, px, bz
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from khyhxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectByYhbh" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from khyhxxb
+    where yhbh = #{yhbh,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByKhyhqc" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from khyhxxb
+    where khyhqc = #{khyhqc,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from khyhxxb
+    order by px asc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from khyhxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Khyhxxb" >
+    insert into khyhxxb (lsh, yhbh, khyhqc, 
+      px, bz)
+    values (#{lsh,jdbcType=BIGINT}, #{yhbh,jdbcType=VARCHAR}, #{khyhqc,jdbcType=VARCHAR}, 
+      #{px,jdbcType=INTEGER}, #{bz,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Khyhxxb" >
+    insert into khyhxxb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="yhbh != null" >
+        yhbh,
+      </if>
+      <if test="khyhqc != null" >
+        khyhqc,
+      </if>
+      <if test="px != null" >
+        px,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="yhbh != null" >
+        #{yhbh,jdbcType=VARCHAR},
+      </if>
+      <if test="khyhqc != null" >
+        #{khyhqc,jdbcType=VARCHAR},
+      </if>
+      <if test="px != null" >
+        #{px,jdbcType=INTEGER},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Khyhxxb" >
+    update khyhxxb
+    <set >
+      <if test="yhbh != null" >
+        yhbh = #{yhbh,jdbcType=VARCHAR},
+      </if>
+      <if test="khyhqc != null" >
+        khyhqc = #{khyhqc,jdbcType=VARCHAR},
+      </if>
+      <if test="px != null" >
+        px = #{px,jdbcType=INTEGER},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Khyhxxb" >
+    update khyhxxb
+    set yhbh = #{yhbh,jdbcType=VARCHAR},
+      khyhqc = #{khyhqc,jdbcType=VARCHAR},
+      px = #{px,jdbcType=INTEGER},
+      bz = #{bz,jdbcType=VARCHAR}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.YgdaMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Ygda" >
+    <id column="ygbh" property="ygbh" jdbcType="VARCHAR" />
+    <result column="xm" property="xm" jdbcType="VARCHAR" />
+    <result column="xb" property="xb" jdbcType="INTEGER" />
+    <result column="minzu" property="minzu" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="sfzh" property="sfzh" jdbcType="VARCHAR" />
+    <result column="csny" property="csny" jdbcType="TIMESTAMP" />
+    <result column="hyzk" property="hyzk" jdbcType="INTEGER" />
+    <result column="zzmm" property="zzmm" jdbcType="INTEGER" />
+    <result column="sg" property="sg" jdbcType="INTEGER" />
+    <result column="tz" property="tz" jdbcType="INTEGER" />
+    <result column="fzxh" property="fzxh" jdbcType="INTEGER" />
+    <result column="jg" property="jg" jdbcType="INTEGER" />
+    <result column="fkxz" property="fkxz" jdbcType="VARCHAR" />
+    <result column="rycategory" property="rycategory" jdbcType="VARCHAR" />
+    <result column="ygzp" property="ygzp" jdbcType="VARCHAR" />
+    <result column="hjdz" property="hjdz" jdbcType="VARCHAR" />
+    <result column="xjzd" property="xjzd" jdbcType="VARCHAR" />
+    <result column="dqzc" property="dqzc" jdbcType="INTEGER" />
+    <result column="xl" property="xl" jdbcType="INTEGER" />
+    <result column="xw" property="xw" jdbcType="INTEGER" />
+    <result column="zszctdw" property="zszctdw" jdbcType="INTEGER" />
+    <result column="xzjljl" property="xzjljl" jdbcType="INTEGER" />
+    <result column="xsfzjl" property="xsfzjl" jdbcType="INTEGER" />
+    <result column="wfxwjl" property="wfxwjl" jdbcType="INTEGER" />
+    <result column="rzqsbzt" property="rzqsbzt" jdbcType="INTEGER" />
+    <result column="rzqgjjzh" property="rzqgjjzh" jdbcType="VARCHAR" />
+    <result column="cjgzsj" property="cjgzsj" jdbcType="TIMESTAMP" />
+    <result column="rzsj" property="rzsj" jdbcType="TIMESTAMP" />
+    <result column="xxcjbs" property="xxcjbs" jdbcType="INTEGER" />
+    <result column="zt" property="zt" jdbcType="VARCHAR" />
+    <result column="probulid" property="probulid" jdbcType="INTEGER" />
+    <result column="upno" property="upno" jdbcType="VARCHAR" />
+    <result column="szdy" property="szdy" jdbcType="BIGINT" />
+    <result column="szjg" property="szjg" jdbcType="VARCHAR" />
+    <result column="tjshsj" property="tjshsj" jdbcType="TIMESTAMP" />
+    <result column="cjshr" property="cjshr" jdbcType="VARCHAR" />
+    <result column="cjshsj" property="cjshsj" jdbcType="TIMESTAMP" />
+    <result column="newupdate" property="newupdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ygbh, xm, xb, minzu, mobile, sfzh, csny, hyzk, zzmm, sg, tz, fzxh, jg, fkxz, rycategory, 
+    ygzp, hjdz, xjzd, dqzc, xl, xw, zszctdw, xzjljl, xsfzjl, wfxwjl, rzqsbzt, rzqgjjzh, 
+    cjgzsj, rzsj, xxcjbs, zt, probulid, upno, szdy, szjg, tjshsj, cjshr, cjshsj, newupdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ygda
+    where ygbh = #{ygbh,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByLogin" resultMap="BaseResultMap" parameterType="com.Pojo.Ygda" >
+    select 
+    <include refid="Base_Column_List" />
+    from ygda y
+    where y.xm = #{xm,jdbcType=VARCHAR} 
+    	and y.sfzh = #{sfzh,jdbcType=VARCHAR}
+    	and y.szjg = #{szjg,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ygda
+    where ygbh = #{ygbh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Ygda" >
+    insert into ygda (ygbh, xm, xb, 
+      minzu, mobile, sfzh, 
+      csny, hyzk, zzmm, 
+      sg, tz, fzxh, jg, 
+      fkxz, rycategory, ygzp, 
+      hjdz, xjzd, dqzc, xl, 
+      xw, zszctdw, xzjljl, 
+      xsfzjl, wfxwjl, rzqsbzt, 
+      rzqgjjzh, cjgzsj, rzsj, 
+      xxcjbs, zt, probulid, 
+      upno, szdy, szjg, tjshsj, 
+      cjshr, cjshsj, newupdate
+      )
+    values (#{ygbh,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{xb,jdbcType=INTEGER}, 
+      #{minzu,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{sfzh,jdbcType=VARCHAR}, 
+      #{csny,jdbcType=TIMESTAMP}, #{hyzk,jdbcType=INTEGER}, #{zzmm,jdbcType=INTEGER}, 
+      #{sg,jdbcType=INTEGER}, #{tz,jdbcType=INTEGER}, #{fzxh,jdbcType=INTEGER}, #{jg,jdbcType=INTEGER}, 
+      #{fkxz,jdbcType=VARCHAR}, #{rycategory,jdbcType=VARCHAR}, #{ygzp,jdbcType=VARCHAR}, 
+      #{hjdz,jdbcType=VARCHAR}, #{xjzd,jdbcType=VARCHAR}, #{dqzc,jdbcType=INTEGER}, #{xl,jdbcType=INTEGER}, 
+      #{xw,jdbcType=INTEGER}, #{zszctdw,jdbcType=INTEGER}, #{xzjljl,jdbcType=INTEGER}, 
+      #{xsfzjl,jdbcType=INTEGER}, #{wfxwjl,jdbcType=INTEGER}, #{rzqsbzt,jdbcType=INTEGER}, 
+      #{rzqgjjzh,jdbcType=VARCHAR}, #{cjgzsj,jdbcType=TIMESTAMP}, #{rzsj,jdbcType=TIMESTAMP}, 
+      #{xxcjbs,jdbcType=INTEGER}, #{zt,jdbcType=VARCHAR}, #{probulid,jdbcType=INTEGER}, 
+      #{upno,jdbcType=VARCHAR}, #{szdy,jdbcType=BIGINT}, #{szjg,jdbcType=VARCHAR}, #{tjshsj,jdbcType=TIMESTAMP}, 
+      #{cjshr,jdbcType=VARCHAR}, #{cjshsj,jdbcType=TIMESTAMP}, #{newupdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Ygda" >
+    insert into ygda
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ygbh != null" >
+        ygbh,
+      </if>
+      <if test="xm != null" >
+        xm,
+      </if>
+      <if test="xb != null" >
+        xb,
+      </if>
+      <if test="minzu != null" >
+        minzu,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="sfzh != null" >
+        sfzh,
+      </if>
+      <if test="csny != null" >
+        csny,
+      </if>
+      <if test="hyzk != null" >
+        hyzk,
+      </if>
+      <if test="zzmm != null" >
+        zzmm,
+      </if>
+      <if test="sg != null" >
+        sg,
+      </if>
+      <if test="tz != null" >
+        tz,
+      </if>
+      <if test="fzxh != null" >
+        fzxh,
+      </if>
+      <if test="jg != null" >
+        jg,
+      </if>
+      <if test="fkxz != null" >
+        fkxz,
+      </if>
+      <if test="rycategory != null" >
+        rycategory,
+      </if>
+      <if test="ygzp != null" >
+        ygzp,
+      </if>
+      <if test="hjdz != null" >
+        hjdz,
+      </if>
+      <if test="xjzd != null" >
+        xjzd,
+      </if>
+      <if test="dqzc != null" >
+        dqzc,
+      </if>
+      <if test="xl != null" >
+        xl,
+      </if>
+      <if test="xw != null" >
+        xw,
+      </if>
+      <if test="zszctdw != null" >
+        zszctdw,
+      </if>
+      <if test="xzjljl != null" >
+        xzjljl,
+      </if>
+      <if test="xsfzjl != null" >
+        xsfzjl,
+      </if>
+      <if test="wfxwjl != null" >
+        wfxwjl,
+      </if>
+      <if test="rzqsbzt != null" >
+        rzqsbzt,
+      </if>
+      <if test="rzqgjjzh != null" >
+        rzqgjjzh,
+      </if>
+      <if test="cjgzsj != null" >
+        cjgzsj,
+      </if>
+      <if test="rzsj != null" >
+        rzsj,
+      </if>
+      <if test="xxcjbs != null" >
+        xxcjbs,
+      </if>
+      <if test="zt != null" >
+        zt,
+      </if>
+      <if test="probulid != null" >
+        probulid,
+      </if>
+      <if test="upno != null" >
+        upno,
+      </if>
+      <if test="szdy != null" >
+        szdy,
+      </if>
+      <if test="szjg != null" >
+        szjg,
+      </if>
+      <if test="tjshsj != null" >
+        tjshsj,
+      </if>
+      <if test="cjshr != null" >
+        cjshr,
+      </if>
+      <if test="cjshsj != null" >
+        cjshsj,
+      </if>
+      <if test="newupdate != null" >
+        newupdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ygbh != null" >
+        #{ygbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null" >
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null" >
+        #{xb,jdbcType=INTEGER},
+      </if>
+      <if test="minzu != null" >
+        #{minzu,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null" >
+        #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="csny != null" >
+        #{csny,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hyzk != null" >
+        #{hyzk,jdbcType=INTEGER},
+      </if>
+      <if test="zzmm != null" >
+        #{zzmm,jdbcType=INTEGER},
+      </if>
+      <if test="sg != null" >
+        #{sg,jdbcType=INTEGER},
+      </if>
+      <if test="tz != null" >
+        #{tz,jdbcType=INTEGER},
+      </if>
+      <if test="fzxh != null" >
+        #{fzxh,jdbcType=INTEGER},
+      </if>
+      <if test="jg != null" >
+        #{jg,jdbcType=INTEGER},
+      </if>
+      <if test="fkxz != null" >
+        #{fkxz,jdbcType=VARCHAR},
+      </if>
+      <if test="rycategory != null" >
+        #{rycategory,jdbcType=VARCHAR},
+      </if>
+      <if test="ygzp != null" >
+        #{ygzp,jdbcType=VARCHAR},
+      </if>
+      <if test="hjdz != null" >
+        #{hjdz,jdbcType=VARCHAR},
+      </if>
+      <if test="xjzd != null" >
+        #{xjzd,jdbcType=VARCHAR},
+      </if>
+      <if test="dqzc != null" >
+        #{dqzc,jdbcType=INTEGER},
+      </if>
+      <if test="xl != null" >
+        #{xl,jdbcType=INTEGER},
+      </if>
+      <if test="xw != null" >
+        #{xw,jdbcType=INTEGER},
+      </if>
+      <if test="zszctdw != null" >
+        #{zszctdw,jdbcType=INTEGER},
+      </if>
+      <if test="xzjljl != null" >
+        #{xzjljl,jdbcType=INTEGER},
+      </if>
+      <if test="xsfzjl != null" >
+        #{xsfzjl,jdbcType=INTEGER},
+      </if>
+      <if test="wfxwjl != null" >
+        #{wfxwjl,jdbcType=INTEGER},
+      </if>
+      <if test="rzqsbzt != null" >
+        #{rzqsbzt,jdbcType=INTEGER},
+      </if>
+      <if test="rzqgjjzh != null" >
+        #{rzqgjjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="cjgzsj != null" >
+        #{cjgzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rzsj != null" >
+        #{rzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xxcjbs != null" >
+        #{xxcjbs,jdbcType=INTEGER},
+      </if>
+      <if test="zt != null" >
+        #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="probulid != null" >
+        #{probulid,jdbcType=INTEGER},
+      </if>
+      <if test="upno != null" >
+        #{upno,jdbcType=VARCHAR},
+      </if>
+      <if test="szdy != null" >
+        #{szdy,jdbcType=BIGINT},
+      </if>
+      <if test="szjg != null" >
+        #{szjg,jdbcType=VARCHAR},
+      </if>
+      <if test="tjshsj != null" >
+        #{tjshsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cjshr != null" >
+        #{cjshr,jdbcType=VARCHAR},
+      </if>
+      <if test="cjshsj != null" >
+        #{cjshsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="newupdate != null" >
+        #{newupdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Ygda" >
+    update ygda
+    <set >
+      <if test="xm != null" >
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null" >
+        xb = #{xb,jdbcType=INTEGER},
+      </if>
+      <if test="minzu != null" >
+        minzu = #{minzu,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null" >
+        sfzh = #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="csny != null" >
+        csny = #{csny,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hyzk != null" >
+        hyzk = #{hyzk,jdbcType=INTEGER},
+      </if>
+      <if test="zzmm != null" >
+        zzmm = #{zzmm,jdbcType=INTEGER},
+      </if>
+      <if test="sg != null" >
+        sg = #{sg,jdbcType=INTEGER},
+      </if>
+      <if test="tz != null" >
+        tz = #{tz,jdbcType=INTEGER},
+      </if>
+      <if test="fzxh != null" >
+        fzxh = #{fzxh,jdbcType=INTEGER},
+      </if>
+      <if test="jg != null" >
+        jg = #{jg,jdbcType=INTEGER},
+      </if>
+      <if test="fkxz != null" >
+        fkxz = #{fkxz,jdbcType=VARCHAR},
+      </if>
+      <if test="rycategory != null" >
+        rycategory = #{rycategory,jdbcType=VARCHAR},
+      </if>
+      <if test="ygzp != null" >
+        ygzp = #{ygzp,jdbcType=VARCHAR},
+      </if>
+      <if test="hjdz != null" >
+        hjdz = #{hjdz,jdbcType=VARCHAR},
+      </if>
+      <if test="xjzd != null" >
+        xjzd = #{xjzd,jdbcType=VARCHAR},
+      </if>
+      <if test="dqzc != null" >
+        dqzc = #{dqzc,jdbcType=INTEGER},
+      </if>
+      <if test="xl != null" >
+        xl = #{xl,jdbcType=INTEGER},
+      </if>
+      <if test="xw != null" >
+        xw = #{xw,jdbcType=INTEGER},
+      </if>
+      <if test="zszctdw != null" >
+        zszctdw = #{zszctdw,jdbcType=INTEGER},
+      </if>
+      <if test="xzjljl != null" >
+        xzjljl = #{xzjljl,jdbcType=INTEGER},
+      </if>
+      <if test="xsfzjl != null" >
+        xsfzjl = #{xsfzjl,jdbcType=INTEGER},
+      </if>
+      <if test="wfxwjl != null" >
+        wfxwjl = #{wfxwjl,jdbcType=INTEGER},
+      </if>
+      <if test="rzqsbzt != null" >
+        rzqsbzt = #{rzqsbzt,jdbcType=INTEGER},
+      </if>
+      <if test="rzqgjjzh != null" >
+        rzqgjjzh = #{rzqgjjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="cjgzsj != null" >
+        cjgzsj = #{cjgzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rzsj != null" >
+        rzsj = #{rzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xxcjbs != null" >
+        xxcjbs = #{xxcjbs,jdbcType=INTEGER},
+      </if>
+      <if test="zt != null" >
+        zt = #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="probulid != null" >
+        probulid = #{probulid,jdbcType=INTEGER},
+      </if>
+      <if test="upno != null" >
+        upno = #{upno,jdbcType=VARCHAR},
+      </if>
+      <if test="szdy != null" >
+        szdy = #{szdy,jdbcType=BIGINT},
+      </if>
+      <if test="szjg != null" >
+        szjg = #{szjg,jdbcType=VARCHAR},
+      </if>
+      <if test="tjshsj != null" >
+        tjshsj = #{tjshsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cjshr != null" >
+        cjshr = #{cjshr,jdbcType=VARCHAR},
+      </if>
+      <if test="cjshsj != null" >
+        cjshsj = #{cjshsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="newupdate != null" >
+        newupdate = #{newupdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ygbh = #{ygbh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Ygda" >
+    update ygda
+    set xm = #{xm,jdbcType=VARCHAR},
+      xb = #{xb,jdbcType=INTEGER},
+      minzu = #{minzu,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      sfzh = #{sfzh,jdbcType=VARCHAR},
+      csny = #{csny,jdbcType=TIMESTAMP},
+      hyzk = #{hyzk,jdbcType=INTEGER},
+      zzmm = #{zzmm,jdbcType=INTEGER},
+      sg = #{sg,jdbcType=INTEGER},
+      tz = #{tz,jdbcType=INTEGER},
+      fzxh = #{fzxh,jdbcType=INTEGER},
+      jg = #{jg,jdbcType=INTEGER},
+      fkxz = #{fkxz,jdbcType=VARCHAR},
+      rycategory = #{rycategory,jdbcType=VARCHAR},
+      ygzp = #{ygzp,jdbcType=VARCHAR},
+      hjdz = #{hjdz,jdbcType=VARCHAR},
+      xjzd = #{xjzd,jdbcType=VARCHAR},
+      dqzc = #{dqzc,jdbcType=INTEGER},
+      xl = #{xl,jdbcType=INTEGER},
+      xw = #{xw,jdbcType=INTEGER},
+      zszctdw = #{zszctdw,jdbcType=INTEGER},
+      xzjljl = #{xzjljl,jdbcType=INTEGER},
+      xsfzjl = #{xsfzjl,jdbcType=INTEGER},
+      wfxwjl = #{wfxwjl,jdbcType=INTEGER},
+      rzqsbzt = #{rzqsbzt,jdbcType=INTEGER},
+      rzqgjjzh = #{rzqgjjzh,jdbcType=VARCHAR},
+      cjgzsj = #{cjgzsj,jdbcType=TIMESTAMP},
+      rzsj = #{rzsj,jdbcType=TIMESTAMP},
+      xxcjbs = #{xxcjbs,jdbcType=INTEGER},
+      zt = #{zt,jdbcType=VARCHAR},
+      probulid = #{probulid,jdbcType=INTEGER},
+      upno = #{upno,jdbcType=VARCHAR},
+      szdy = #{szdy,jdbcType=BIGINT},
+      szjg = #{szjg,jdbcType=VARCHAR},
+      tjshsj = #{tjshsj,jdbcType=TIMESTAMP},
+      cjshr = #{cjshr,jdbcType=VARCHAR},
+      cjshsj = #{cjshsj,jdbcType=TIMESTAMP},
+      newupdate = #{newupdate,jdbcType=TIMESTAMP}
+    where ygbh = #{ygbh,jdbcType=VARCHAR}
+  </update>
+</mapper>

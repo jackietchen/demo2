@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.JzzgxbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Jzzgxb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="yg" property="yg" jdbcType="VARCHAR" />
+    <result column="dylb" property="dylb" jdbcType="INTEGER" />
+    <result column="ssdzz" property="ssdzz" jdbcType="VARCHAR" />
+    <result column="djsqsrq" property="djsqsrq" jdbcType="TIMESTAMP" />
+    <result column="pzrq" property="pzrq" jdbcType="TIMESTAMP" />
+    <result column="qtqksm" property="qtqksm" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, yg, dylb, ssdzz, djsqsrq, pzrq, qtqksm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from jzzgxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from jzzgxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Jzzgxb" >
+    insert into jzzgxb (lsh, yg, dylb, 
+      ssdzz, djsqsrq, pzrq, 
+      qtqksm)
+    values (#{lsh,jdbcType=BIGINT}, #{yg,jdbcType=VARCHAR}, #{dylb,jdbcType=INTEGER}, 
+      #{ssdzz,jdbcType=VARCHAR}, #{djsqsrq,jdbcType=TIMESTAMP}, #{pzrq,jdbcType=TIMESTAMP}, 
+      #{qtqksm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Jzzgxb" >
+    insert into jzzgxb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="yg != null" >
+        yg,
+      </if>
+      <if test="dylb != null" >
+        dylb,
+      </if>
+      <if test="ssdzz != null" >
+        ssdzz,
+      </if>
+      <if test="djsqsrq != null" >
+        djsqsrq,
+      </if>
+      <if test="pzrq != null" >
+        pzrq,
+      </if>
+      <if test="qtqksm != null" >
+        qtqksm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="yg != null" >
+        #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="dylb != null" >
+        #{dylb,jdbcType=INTEGER},
+      </if>
+      <if test="ssdzz != null" >
+        #{ssdzz,jdbcType=VARCHAR},
+      </if>
+      <if test="djsqsrq != null" >
+        #{djsqsrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pzrq != null" >
+        #{pzrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qtqksm != null" >
+        #{qtqksm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Jzzgxb" >
+    update jzzgxb
+    <set >
+      <if test="yg != null" >
+        yg = #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="dylb != null" >
+        dylb = #{dylb,jdbcType=INTEGER},
+      </if>
+      <if test="ssdzz != null" >
+        ssdzz = #{ssdzz,jdbcType=VARCHAR},
+      </if>
+      <if test="djsqsrq != null" >
+        djsqsrq = #{djsqsrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pzrq != null" >
+        pzrq = #{pzrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qtqksm != null" >
+        qtqksm = #{qtqksm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Jzzgxb" >
+    update jzzgxb
+    set yg = #{yg,jdbcType=VARCHAR},
+      dylb = #{dylb,jdbcType=INTEGER},
+      ssdzz = #{ssdzz,jdbcType=VARCHAR},
+      djsqsrq = #{djsqsrq,jdbcType=TIMESTAMP},
+      pzrq = #{pzrq,jdbcType=TIMESTAMP},
+      qtqksm = #{qtqksm,jdbcType=VARCHAR}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

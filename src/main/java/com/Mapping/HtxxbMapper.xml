@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.HtxxbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Htxxb" >
+    <id column="htzblsh" property="htzblsh" jdbcType="INTEGER" />
+    <result column="gcbid" property="gcbid" jdbcType="INTEGER" />
+    <result column="htbh" property="htbh" jdbcType="VARCHAR" />
+    <result column="htkgrq" property="htkgrq" jdbcType="TIMESTAMP" />
+    <result column="htjgrq" property="htjgrq" jdbcType="TIMESTAMP" />
+    <result column="htjlf" property="htjlf" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    htzblsh, gcbid, htbh, htkgrq, htjgrq, htjlf
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from htxxb
+    where htzblsh = #{htzblsh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from htxxb
+    where htzblsh = #{htzblsh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Htxxb" >
+    insert into htxxb (htzblsh, gcbid, htbh, 
+      htkgrq, htjgrq, htjlf
+      )
+    values (#{htzblsh,jdbcType=INTEGER}, #{gcbid,jdbcType=INTEGER}, #{htbh,jdbcType=VARCHAR}, 
+      #{htkgrq,jdbcType=TIMESTAMP}, #{htjgrq,jdbcType=TIMESTAMP}, #{htjlf,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Htxxb" >
+    insert into htxxb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="htzblsh != null" >
+        htzblsh,
+      </if>
+      <if test="gcbid != null" >
+        gcbid,
+      </if>
+      <if test="htbh != null" >
+        htbh,
+      </if>
+      <if test="htkgrq != null" >
+        htkgrq,
+      </if>
+      <if test="htjgrq != null" >
+        htjgrq,
+      </if>
+      <if test="htjlf != null" >
+        htjlf,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="htzblsh != null" >
+        #{htzblsh,jdbcType=INTEGER},
+      </if>
+      <if test="gcbid != null" >
+        #{gcbid,jdbcType=INTEGER},
+      </if>
+      <if test="htbh != null" >
+        #{htbh,jdbcType=VARCHAR},
+      </if>
+      <if test="htkgrq != null" >
+        #{htkgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htjgrq != null" >
+        #{htjgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htjlf != null" >
+        #{htjlf,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Htxxb" >
+    update htxxb
+    <set >
+      <if test="gcbid != null" >
+        gcbid = #{gcbid,jdbcType=INTEGER},
+      </if>
+      <if test="htbh != null" >
+        htbh = #{htbh,jdbcType=VARCHAR},
+      </if>
+      <if test="htkgrq != null" >
+        htkgrq = #{htkgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htjgrq != null" >
+        htjgrq = #{htjgrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htjlf != null" >
+        htjlf = #{htjlf,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where htzblsh = #{htzblsh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Htxxb" >
+    update htxxb
+    set gcbid = #{gcbid,jdbcType=INTEGER},
+      htbh = #{htbh,jdbcType=VARCHAR},
+      htkgrq = #{htkgrq,jdbcType=TIMESTAMP},
+      htjgrq = #{htjgrq,jdbcType=TIMESTAMP},
+      htjlf = #{htjlf,jdbcType=DOUBLE}
+    where htzblsh = #{htzblsh,jdbcType=INTEGER}
+  </update>
+</mapper>

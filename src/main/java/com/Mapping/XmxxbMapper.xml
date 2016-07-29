@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.XmxxbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Xmxxb" >
+    <id column="gcbid" property="gcbid" jdbcType="INTEGER" />
+    <result column="dep_no" property="depNo" jdbcType="VARCHAR" />
+    <result column="gcmc" property="gcmc" jdbcType="VARCHAR" />
+    <result column="yzdw" property="yzdw" jdbcType="VARCHAR" />
+    <result column="jsdw" property="jsdw" jdbcType="VARCHAR" />
+    <result column="gczy" property="gczy" jdbcType="INTEGER" />
+    <result column="xmfzr" property="xmfzr" jdbcType="VARCHAR" />
+    <result column="gcjieduan" property="gcjieduan" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    gcbid, dep_no, gcmc, yzdw, jsdw, gczy, xmfzr, gcjieduan
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from xmxxb
+    where gcbid = #{gcbid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from xmxxb
+    where gcbid = #{gcbid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Xmxxb" >
+    insert into xmxxb (gcbid, dep_no, gcmc, 
+      yzdw, jsdw, gczy, xmfzr, 
+      gcjieduan)
+    values (#{gcbid,jdbcType=INTEGER}, #{depNo,jdbcType=VARCHAR}, #{gcmc,jdbcType=VARCHAR}, 
+      #{yzdw,jdbcType=VARCHAR}, #{jsdw,jdbcType=VARCHAR}, #{gczy,jdbcType=INTEGER}, #{xmfzr,jdbcType=VARCHAR}, 
+      #{gcjieduan,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Xmxxb" >
+    insert into xmxxb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gcbid != null" >
+        gcbid,
+      </if>
+      <if test="depNo != null" >
+        dep_no,
+      </if>
+      <if test="gcmc != null" >
+        gcmc,
+      </if>
+      <if test="yzdw != null" >
+        yzdw,
+      </if>
+      <if test="jsdw != null" >
+        jsdw,
+      </if>
+      <if test="gczy != null" >
+        gczy,
+      </if>
+      <if test="xmfzr != null" >
+        xmfzr,
+      </if>
+      <if test="gcjieduan != null" >
+        gcjieduan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gcbid != null" >
+        #{gcbid,jdbcType=INTEGER},
+      </if>
+      <if test="depNo != null" >
+        #{depNo,jdbcType=VARCHAR},
+      </if>
+      <if test="gcmc != null" >
+        #{gcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="yzdw != null" >
+        #{yzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="jsdw != null" >
+        #{jsdw,jdbcType=VARCHAR},
+      </if>
+      <if test="gczy != null" >
+        #{gczy,jdbcType=INTEGER},
+      </if>
+      <if test="xmfzr != null" >
+        #{xmfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="gcjieduan != null" >
+        #{gcjieduan,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Xmxxb" >
+    update xmxxb
+    <set >
+      <if test="depNo != null" >
+        dep_no = #{depNo,jdbcType=VARCHAR},
+      </if>
+      <if test="gcmc != null" >
+        gcmc = #{gcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="yzdw != null" >
+        yzdw = #{yzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="jsdw != null" >
+        jsdw = #{jsdw,jdbcType=VARCHAR},
+      </if>
+      <if test="gczy != null" >
+        gczy = #{gczy,jdbcType=INTEGER},
+      </if>
+      <if test="xmfzr != null" >
+        xmfzr = #{xmfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="gcjieduan != null" >
+        gcjieduan = #{gcjieduan,jdbcType=INTEGER},
+      </if>
+    </set>
+    where gcbid = #{gcbid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Xmxxb" >
+    update xmxxb
+    set dep_no = #{depNo,jdbcType=VARCHAR},
+      gcmc = #{gcmc,jdbcType=VARCHAR},
+      yzdw = #{yzdw,jdbcType=VARCHAR},
+      jsdw = #{jsdw,jdbcType=VARCHAR},
+      gczy = #{gczy,jdbcType=INTEGER},
+      xmfzr = #{xmfzr,jdbcType=VARCHAR},
+      gcjieduan = #{gcjieduan,jdbcType=INTEGER}
+    where gcbid = #{gcbid,jdbcType=INTEGER}
+  </update>
+</mapper>

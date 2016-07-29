@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.XlzsbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Xlzsb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="ssyg" property="ssyg" jdbcType="VARCHAR" />
+    <result column="xxmc" property="xxmc" jdbcType="VARCHAR" />
+    <result column="xl" property="xl" jdbcType="INTEGER" />
+    <result column="xz" property="xz" jdbcType="VARCHAR" />
+    <result column="xxxs" property="xxxs" jdbcType="INTEGER" />
+    <result column="sxzy" property="sxzy" jdbcType="VARCHAR" />
+    <result column="xzh" property="xzh" jdbcType="VARCHAR" />
+    <result column="qssj" property="qssj" jdbcType="TIMESTAMP" />
+    <result column="jssj" property="jssj" jdbcType="TIMESTAMP" />
+    <result column="zsbh" property="zsbh" jdbcType="VARCHAR" />
+    <result column="fzrq" property="fzrq" jdbcType="TIMESTAMP" />
+    <result column="dzzcm" property="dzzcm" jdbcType="VARCHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, ssyg, xxmc, xl, xz, xxxs, sxzy, xzh, qssj, jssj, zsbh, fzrq, dzzcm, bz
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from xlzsb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectBySsyg" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from xlzsb
+    where ssyg = #{ssyg,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from xlzsb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Xlzsb" >
+    insert into xlzsb (lsh, ssyg, xxmc, 
+      xl, xz, xxxs, sxzy, 
+      xzh, qssj, jssj, 
+      zsbh, fzrq, dzzcm, 
+      bz)
+    values (#{lsh,jdbcType=BIGINT}, #{ssyg,jdbcType=VARCHAR}, #{xxmc,jdbcType=VARCHAR}, 
+      #{xl,jdbcType=INTEGER}, #{xz,jdbcType=VARCHAR}, #{xxxs,jdbcType=INTEGER}, #{sxzy,jdbcType=VARCHAR}, 
+      #{xzh,jdbcType=VARCHAR}, #{qssj,jdbcType=TIMESTAMP}, #{jssj,jdbcType=TIMESTAMP}, 
+      #{zsbh,jdbcType=VARCHAR}, #{fzrq,jdbcType=TIMESTAMP}, #{dzzcm,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Xlzsb" >
+    insert into xlzsb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="ssyg != null" >
+        ssyg,
+      </if>
+      <if test="xxmc != null" >
+        xxmc,
+      </if>
+      <if test="xl != null" >
+        xl,
+      </if>
+      <if test="xz != null" >
+        xz,
+      </if>
+      <if test="xxxs != null" >
+        xxxs,
+      </if>
+      <if test="sxzy != null" >
+        sxzy,
+      </if>
+      <if test="xzh != null" >
+        xzh,
+      </if>
+      <if test="qssj != null" >
+        qssj,
+      </if>
+      <if test="jssj != null" >
+        jssj,
+      </if>
+      <if test="zsbh != null" >
+        zsbh,
+      </if>
+      <if test="fzrq != null" >
+        fzrq,
+      </if>
+      <if test="dzzcm != null" >
+        dzzcm,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="ssyg != null" >
+        #{ssyg,jdbcType=VARCHAR},
+      </if>
+      <if test="xxmc != null" >
+        #{xxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xl != null" >
+        #{xl,jdbcType=INTEGER},
+      </if>
+      <if test="xz != null" >
+        #{xz,jdbcType=VARCHAR},
+      </if>
+      <if test="xxxs != null" >
+        #{xxxs,jdbcType=INTEGER},
+      </if>
+      <if test="sxzy != null" >
+        #{sxzy,jdbcType=VARCHAR},
+      </if>
+      <if test="xzh != null" >
+        #{xzh,jdbcType=VARCHAR},
+      </if>
+      <if test="qssj != null" >
+        #{qssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jssj != null" >
+        #{jssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zsbh != null" >
+        #{zsbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fzrq != null" >
+        #{fzrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dzzcm != null" >
+        #{dzzcm,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Xlzsb" >
+    update xlzsb
+    <set >
+      <if test="ssyg != null" >
+        ssyg = #{ssyg,jdbcType=VARCHAR},
+      </if>
+      <if test="xxmc != null" >
+        xxmc = #{xxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xl != null" >
+        xl = #{xl,jdbcType=INTEGER},
+      </if>
+      <if test="xz != null" >
+        xz = #{xz,jdbcType=VARCHAR},
+      </if>
+      <if test="xxxs != null" >
+        xxxs = #{xxxs,jdbcType=INTEGER},
+      </if>
+      <if test="sxzy != null" >
+        sxzy = #{sxzy,jdbcType=VARCHAR},
+      </if>
+      <if test="xzh != null" >
+        xzh = #{xzh,jdbcType=VARCHAR},
+      </if>
+      <if test="qssj != null" >
+        qssj = #{qssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jssj != null" >
+        jssj = #{jssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zsbh != null" >
+        zsbh = #{zsbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fzrq != null" >
+        fzrq = #{fzrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dzzcm != null" >
+        dzzcm = #{dzzcm,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Xlzsb" >
+    update xlzsb
+    set ssyg = #{ssyg,jdbcType=VARCHAR},
+      xxmc = #{xxmc,jdbcType=VARCHAR},
+      xl = #{xl,jdbcType=INTEGER},
+      xz = #{xz,jdbcType=VARCHAR},
+      xxxs = #{xxxs,jdbcType=INTEGER},
+      sxzy = #{sxzy,jdbcType=VARCHAR},
+      xzh = #{xzh,jdbcType=VARCHAR},
+      qssj = #{qssj,jdbcType=TIMESTAMP},
+      jssj = #{jssj,jdbcType=TIMESTAMP},
+      zsbh = #{zsbh,jdbcType=VARCHAR},
+      fzrq = #{fzrq,jdbcType=TIMESTAMP},
+      dzzcm = #{dzzcm,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

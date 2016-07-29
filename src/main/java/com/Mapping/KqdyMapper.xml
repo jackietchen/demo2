@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.KqdyMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Kqdy" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="dyjc" property="dyjc" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="dyxmlx" property="dyxmlx" jdbcType="INTEGER" />
+    <result column="fzr" property="fzr" jdbcType="VARCHAR" />
+    <result column="CPbs" property="cpbs" jdbcType="INTEGER" />
+    <result column="qybz" property="qybz" jdbcType="INTEGER" />
+    <result column="discrib" property="discrib" jdbcType="VARCHAR" />
+    <result column="deptno" property="deptno" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, dyjc, type, dyxmlx, fzr, CPbs, qybz, discrib, deptno
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from kqdy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByDeptno" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from kqdy
+    where deptno = #{deptno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from kqdy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Kqdy" >
+    insert into kqdy (id, name, dyjc, 
+      type, dyxmlx, fzr, 
+      CPbs, qybz, discrib, 
+      deptno)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{dyjc,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{dyxmlx,jdbcType=INTEGER}, #{fzr,jdbcType=VARCHAR}, 
+      #{cpbs,jdbcType=INTEGER}, #{qybz,jdbcType=INTEGER}, #{discrib,jdbcType=VARCHAR}, 
+      #{deptno,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Kqdy" >
+    insert into kqdy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="dyjc != null" >
+        dyjc,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="dyxmlx != null" >
+        dyxmlx,
+      </if>
+      <if test="fzr != null" >
+        fzr,
+      </if>
+      <if test="cpbs != null" >
+        CPbs,
+      </if>
+      <if test="qybz != null" >
+        qybz,
+      </if>
+      <if test="discrib != null" >
+        discrib,
+      </if>
+      <if test="deptno != null" >
+        deptno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="dyjc != null" >
+        #{dyjc,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="dyxmlx != null" >
+        #{dyxmlx,jdbcType=INTEGER},
+      </if>
+      <if test="fzr != null" >
+        #{fzr,jdbcType=VARCHAR},
+      </if>
+      <if test="cpbs != null" >
+        #{cpbs,jdbcType=INTEGER},
+      </if>
+      <if test="qybz != null" >
+        #{qybz,jdbcType=INTEGER},
+      </if>
+      <if test="discrib != null" >
+        #{discrib,jdbcType=VARCHAR},
+      </if>
+      <if test="deptno != null" >
+        #{deptno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Kqdy" >
+    update kqdy
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="dyjc != null" >
+        dyjc = #{dyjc,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="dyxmlx != null" >
+        dyxmlx = #{dyxmlx,jdbcType=INTEGER},
+      </if>
+      <if test="fzr != null" >
+        fzr = #{fzr,jdbcType=VARCHAR},
+      </if>
+      <if test="cpbs != null" >
+        CPbs = #{cpbs,jdbcType=INTEGER},
+      </if>
+      <if test="qybz != null" >
+        qybz = #{qybz,jdbcType=INTEGER},
+      </if>
+      <if test="discrib != null" >
+        discrib = #{discrib,jdbcType=VARCHAR},
+      </if>
+      <if test="deptno != null" >
+        deptno = #{deptno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Kqdy" >
+    update kqdy
+    set name = #{name,jdbcType=VARCHAR},
+      dyjc = #{dyjc,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      dyxmlx = #{dyxmlx,jdbcType=INTEGER},
+      fzr = #{fzr,jdbcType=VARCHAR},
+      CPbs = #{cpbs,jdbcType=INTEGER},
+      qybz = #{qybz,jdbcType=INTEGER},
+      discrib = #{discrib,jdbcType=VARCHAR},
+      deptno = #{deptno,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

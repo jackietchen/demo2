@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.JzzxxbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Jzzxxb" >
+    <id column="lsh" property="lsh" jdbcType="BIGINT" />
+    <result column="yg" property="yg" jdbcType="VARCHAR" />
+    <result column="jyshjzz" property="jyshjzz" jdbcType="INTEGER" />
+    <result column="jzzlb" property="jzzlb" jdbcType="INTEGER" />
+    <result column="ccslsj" property="ccslsj" jdbcType="TIMESTAMP" />
+    <result column="yxqz" property="yxqz" jdbcType="TIMESTAMP" />
+    <result column="jzddz" property="jzddz" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lsh, yg, jyshjzz, jzzlb, ccslsj, yxqz, jzddz
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from jzzxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </select>
+  <select id="selectByYgbh" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from jzzxxb
+    where yg = #{yg,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from jzzxxb
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Jzzxxb" >
+    insert into jzzxxb (lsh, yg, jyshjzz, 
+      jzzlb, ccslsj, yxqz, 
+      jzddz)
+    values (#{lsh,jdbcType=BIGINT}, #{yg,jdbcType=VARCHAR}, #{jyshjzz,jdbcType=INTEGER}, 
+      #{jzzlb,jdbcType=INTEGER}, #{ccslsj,jdbcType=TIMESTAMP}, #{yxqz,jdbcType=TIMESTAMP}, 
+      #{jzddz,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Jzzxxb" >
+    insert into jzzxxb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        lsh,
+      </if>
+      <if test="yg != null" >
+        yg,
+      </if>
+      <if test="jyshjzz != null" >
+        jyshjzz,
+      </if>
+      <if test="jzzlb != null" >
+        jzzlb,
+      </if>
+      <if test="ccslsj != null" >
+        ccslsj,
+      </if>
+      <if test="yxqz != null" >
+        yxqz,
+      </if>
+      <if test="jzddz != null" >
+        jzddz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lsh != null" >
+        #{lsh,jdbcType=BIGINT},
+      </if>
+      <if test="yg != null" >
+        #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="jyshjzz != null" >
+        #{jyshjzz,jdbcType=INTEGER},
+      </if>
+      <if test="jzzlb != null" >
+        #{jzzlb,jdbcType=INTEGER},
+      </if>
+      <if test="ccslsj != null" >
+        #{ccslsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yxqz != null" >
+        #{yxqz,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jzddz != null" >
+        #{jzddz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Jzzxxb" >
+    update jzzxxb
+    <set >
+      <if test="yg != null" >
+        yg = #{yg,jdbcType=VARCHAR},
+      </if>
+      <if test="jyshjzz != null" >
+        jyshjzz = #{jyshjzz,jdbcType=INTEGER},
+      </if>
+      <if test="jzzlb != null" >
+        jzzlb = #{jzzlb,jdbcType=INTEGER},
+      </if>
+      <if test="ccslsj != null" >
+        ccslsj = #{ccslsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yxqz != null" >
+        yxqz = #{yxqz,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jzddz != null" >
+        jzddz = #{jzddz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Jzzxxb" >
+    update jzzxxb
+    set yg = #{yg,jdbcType=VARCHAR},
+      jyshjzz = #{jyshjzz,jdbcType=INTEGER},
+      jzzlb = #{jzzlb,jdbcType=INTEGER},
+      ccslsj = #{ccslsj,jdbcType=TIMESTAMP},
+      yxqz = #{yxqz,jdbcType=TIMESTAMP},
+      jzddz = #{jzddz,jdbcType=VARCHAR}
+    where lsh = #{lsh,jdbcType=BIGINT}
+  </update>
+</mapper>

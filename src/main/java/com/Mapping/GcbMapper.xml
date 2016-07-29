@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Dao.GcbMapper" >
+  <resultMap id="BaseResultMap" type="com.Pojo.Gcb" >
+    <id column="gcbid" property="gcbid" jdbcType="INTEGER" />
+    <result column="dep_no" property="depNo" jdbcType="VARCHAR" />
+    <result column="gcmc" property="gcmc" jdbcType="VARCHAR" />
+    <result column="yzdw" property="yzdw" jdbcType="VARCHAR" />
+    <result column="jsdw" property="jsdw" jdbcType="VARCHAR" />
+    <result column="gczy" property="gczy" jdbcType="INTEGER" />
+    <result column="xmfzr" property="xmfzr" jdbcType="VARCHAR" />
+    <result column="gcjieduan" property="gcjieduan" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    gcbid, dep_no, gcmc, yzdw, jsdw, gczy, xmfzr, gcjieduan
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gcb
+    where gcbid = #{gcbid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByDepNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from gcb
+    where dep_no = #{depNo,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByXmfzr" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from gcb
+    where xmfzr = #{xmfzr,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByLike" resultMap="BaseResultMap" parameterType="com.Pojo.Gcb" >
+    select 
+    <include refid="Base_Column_List" />
+    from gcb
+    where dep_no = #{depNo,jdbcType=VARCHAR}
+    and gcmc like CONCAT('%',#{gcmc,jdbcType=VARCHAR},'%')
+  </select>
+  <select id="selectByLikes" resultMap="BaseResultMap" parameterType="com.Pojo.Gcb" >
+    select 
+    <include refid="Base_Column_List" />
+    from gcb
+    where xmfzr = #{xmfzr,jdbcType=VARCHAR}
+    and gcmc like CONCAT('%',#{gcmc,jdbcType=VARCHAR},'%')
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gcb
+    where gcbid = #{gcbid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.Pojo.Gcb" >
+    insert into gcb (gcbid, dep_no, gcmc, 
+      yzdw, jsdw, gczy, xmfzr, 
+      gcjieduan)
+    values (#{gcbid,jdbcType=INTEGER}, #{depNo,jdbcType=VARCHAR}, #{gcmc,jdbcType=VARCHAR}, 
+      #{yzdw,jdbcType=VARCHAR}, #{jsdw,jdbcType=VARCHAR}, #{gczy,jdbcType=INTEGER}, #{xmfzr,jdbcType=VARCHAR}, 
+      #{gcjieduan,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Pojo.Gcb" >
+    insert into gcb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gcbid != null" >
+        gcbid,
+      </if>
+      <if test="depNo != null" >
+        dep_no,
+      </if>
+      <if test="gcmc != null" >
+        gcmc,
+      </if>
+      <if test="yzdw != null" >
+        yzdw,
+      </if>
+      <if test="jsdw != null" >
+        jsdw,
+      </if>
+      <if test="gczy != null" >
+        gczy,
+      </if>
+      <if test="xmfzr != null" >
+        xmfzr,
+      </if>
+      <if test="gcjieduan != null" >
+        gcjieduan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gcbid != null" >
+        #{gcbid,jdbcType=INTEGER},
+      </if>
+      <if test="depNo != null" >
+        #{depNo,jdbcType=VARCHAR},
+      </if>
+      <if test="gcmc != null" >
+        #{gcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="yzdw != null" >
+        #{yzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="jsdw != null" >
+        #{jsdw,jdbcType=VARCHAR},
+      </if>
+      <if test="gczy != null" >
+        #{gczy,jdbcType=INTEGER},
+      </if>
+      <if test="xmfzr != null" >
+        #{xmfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="gcjieduan != null" >
+        #{gcjieduan,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Pojo.Gcb" >
+    update gcb
+    <set >
+      <if test="depNo != null" >
+        dep_no = #{depNo,jdbcType=VARCHAR},
+      </if>
+      <if test="gcmc != null" >
+        gcmc = #{gcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="yzdw != null" >
+        yzdw = #{yzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="jsdw != null" >
+        jsdw = #{jsdw,jdbcType=VARCHAR},
+      </if>
+      <if test="gczy != null" >
+        gczy = #{gczy,jdbcType=INTEGER},
+      </if>
+      <if test="xmfzr != null" >
+        xmfzr = #{xmfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="gcjieduan != null" >
+        gcjieduan = #{gcjieduan,jdbcType=INTEGER},
+      </if>
+    </set>
+    where gcbid = #{gcbid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Pojo.Gcb" >
+    update gcb
+    set dep_no = #{depNo,jdbcType=VARCHAR},
+      gcmc = #{gcmc,jdbcType=VARCHAR},
+      yzdw = #{yzdw,jdbcType=VARCHAR},
+      jsdw = #{jsdw,jdbcType=VARCHAR},
+      gczy = #{gczy,jdbcType=INTEGER},
+      xmfzr = #{xmfzr,jdbcType=VARCHAR},
+      gcjieduan = #{gcjieduan,jdbcType=INTEGER}
+    where gcbid = #{gcbid,jdbcType=INTEGER}
+  </update>
+</mapper>
